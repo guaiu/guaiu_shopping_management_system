@@ -1,21 +1,21 @@
 package demo;
 
-import page.GoodsPage;
+import page.MainWindows;
 
 /**
- * 推荐项目入口
+ * 弃用的项目入口
  * 
  * @author guaiu
  *
  */
-public class GoodsPageDemo {
+public class MainWinDowsDemo {
 
 	/**
-	 * 项目入口
+	 * 入口
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		GoodsPage page = new GoodsPage();
+		MainWindows page = new MainWindows();
 	}
 }
