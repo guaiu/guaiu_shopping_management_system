@@ -4,6 +4,11 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
+import listener.GoodsAddListener;
+import listener.GoodsChangeListener;
+import listener.GoodsDeleteListener;
+import listener.GoodsQueryListener;
+
 
 /**
  * 商品管理窗口
@@ -18,6 +23,12 @@ public class GoodsPage extends JFrame{
 	private GoodsChangePanel changePanel;
 	private GoodsQueryPanel queryPanel;
 	
+	private GoodsQueryListener queryListener;
+	private GoodsAddListener addListener;
+	private GoodsDeleteListener deleteListener;
+	private GoodsChangeListener changeListener;
+	
+	
 	public GoodsPage() {
 		// TODO Auto-generated constructor stub
 		super();
@@ -29,6 +40,7 @@ public class GoodsPage extends JFrame{
 		this.setLocationRelativeTo(null);
 		
 		this.initPanel();
+		this.initListener();
 		
 		this.setVisible(true);
 		
@@ -48,6 +60,15 @@ public class GoodsPage extends JFrame{
 		this.add(showTablePanel, BorderLayout.CENTER);
 		this.add(deletePanel, BorderLayout.SOUTH);
 		this.add(changePanel, BorderLayout.EAST);
+		
+	}
+	
+	private void initListener() {
+		this.queryListener = new GoodsQueryListener(queryPanel,showTablePanel);
+		this.addListener = new GoodsAddListener(addPanel,showTablePanel);
+		this.deleteListener = new GoodsDeleteListener(deletePanel,showTablePanel);
+		this.changeListener = new GoodsChangeListener(changePanel, showTablePanel);
+		
 		
 	}
 	

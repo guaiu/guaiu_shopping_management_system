@@ -162,7 +162,7 @@ public final class GoodsDao {
 				int gnum = rs.getInt(4);
 
 				Goods goods = new Goods(gid, gname, gprice, gnum); // 创建Goods对象，并赋值.
-				goodsList.add(goods);                              // 添加信息到ArrayList<Goods>中.
+				goodsList.add(goods); // 添加信息到ArrayList<Goods>中.
 			}
 		} catch (SQLException e) {
 			System.out.println("prepareStatement对象发生异常");
@@ -224,7 +224,7 @@ public final class GoodsDao {
 	 * @param 商品名称
 	 * @return 商品信息
 	 */
-	public ArrayList<Goods> queryGoodsName(String gName) {
+	public ArrayList<Goods> queryGoodsNameFuzzy(String gName) {
 		ArrayList<Goods> goodsList = new ArrayList<Goods>();
 		conn = DbConn.getconn();
 
@@ -234,7 +234,6 @@ public final class GoodsDao {
 			System.out.println("prepareStatement对象获取成功");
 			pstmt.setString(1, "%" + gName + "%");
 			System.out.println("prepareStatement对象设置成功");
-			// pstmt.setString(2, gName);
 			rs = pstmt.executeQuery();
 			System.out.println("prepareStatement对象执行成功");
 			while (rs.next()) {
@@ -242,7 +241,47 @@ public final class GoodsDao {
 				String gname = rs.getString(2);
 				double gprice = rs.getDouble(3);
 				int gnum = rs.getInt(4);
+				
+				Goods goods = new Goods(gid, gname, gprice, gnum);
+				goodsList.add(goods);
+			}
+		} catch (SQLException e) {
+			System.out.println("prepareStatement对象发生异常");
+			e.printStackTrace();
+		} finally {
+			System.out.println("开始关闭操作数据库时产生的资源流");
+			DbClose.queryClose(pstmt, rs, conn);
+			System.out.println("资源流已关闭");
+		}
+		System.out.println("返回ArrayList<Goods> goodsList");
+		return goodsList;
+	}
+	
+	/**
+	 * 根据商品 gName查询商品(精确查询)
+	 * 
+	 * @author guaiu
+	 * @param 商品名称
+	 * @return 商品信息
+	 */
+	public ArrayList<Goods> queryGoodsNameExact(String gName) {
+		ArrayList<Goods> goodsList = new ArrayList<Goods>();
+		conn = DbConn.getconn();
 
+		String sql = "SELECT * FROM GOODS WHERE GNAME=?";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			System.out.println("prepareStatement对象获取成功");
+			pstmt.setString(1, gName);
+			System.out.println("prepareStatement对象设置成功");
+			rs = pstmt.executeQuery();
+			System.out.println("prepareStatement对象执行成功");
+			while (rs.next()) {
+				int gid = rs.getInt(1);
+				String gname = rs.getString(2);
+				double gprice = rs.getDouble(3);
+				int gnum = rs.getInt(4);
+				
 				Goods goods = new Goods(gid, gname, gprice, gnum);
 				goodsList.add(goods);
 			}

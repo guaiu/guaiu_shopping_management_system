@@ -12,9 +12,9 @@ public class GoodsInputPanel extends InputPanel{
 	private JLabel label_price;
 	private JLabel label_num;
 	
-	private JTextField field_name;
-	private JTextField field_price;
-	private JTextField field_num;
+	private JTextField textField_name;
+	private JTextField textField_price;
+	private JTextField textField_num;
 	
 	public GoodsInputPanel() {
 		// TODO Auto-generated constructor stub
@@ -26,16 +26,16 @@ public class GoodsInputPanel extends InputPanel{
 		this.label_price = new JLabel("输入商品价格");
 		this.label_num = new JLabel("输入商品数量");
 		
-		this.field_name = new JTextField();
-		this.field_price = new JTextField();
-		this.field_num = new JTextField();
+		this.textField_name = new JTextField();
+		this.textField_price = new JTextField();
+		this.textField_num = new JTextField();
 		
 		this.add(label_name);
-		this.add(field_name);
+		this.add(textField_name);
 		this.add(label_price);
-		this.add(field_price);
+		this.add(textField_price);
 		this.add(label_num);
-		this.add(field_num);
+		this.add(textField_num);
 	}
 
 	public JLabel getLabel_name() {
@@ -50,16 +50,16 @@ public class GoodsInputPanel extends InputPanel{
 		return label_num;
 	}
 
-	public JTextField getField_name() {
-		return field_name;
+	public JTextField getTextField_name() {
+		return textField_name;
 	}
 
-	public JTextField getField_price() {
-		return field_price;
+	public JTextField getTextField_price() {
+		return textField_price;
 	}
 
-	public JTextField getField_num() {
-		return field_num;
+	public JTextField getTextField_num() {
+		return textField_num;
 	}
 
 //	public void setLabel_name(JLabel label_name) {
@@ -74,16 +74,16 @@ public class GoodsInputPanel extends InputPanel{
 //		this.label_num = label_num;
 //	}
 //
-//	public void setField_name(JTextField field_name) {
-//		this.field_name = field_name;
+//	public void setTextField_name(JTextField textField_name) {
+//		this.textField_name = textField_name;
 //	}
 //
-//	public void setField_price(JTextField field_price) {
-//		this.field_price = field_price;
+//	public void setTextField_price(JTextField textField_price) {
+//		this.textField_price = textField_price;
 //	}
 //
-//	public void setField_num(JTextField field_num) {
-//		this.field_num = field_num;
+//	public void setTextField_num(JTextField textField_num) {
+//		this.textField_num = textField_num;
 //	}
 
 
