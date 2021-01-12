@@ -16,9 +16,9 @@ import entity.Goods;
  * @author other,guaiu
  */
 public final class GoodsDao {
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	private Connection conn = null;
+	private PreparedStatement pstmt = null;
+	private ResultSet rs = null;
 
 	/**
 	 * 添加商品到数据库goods表

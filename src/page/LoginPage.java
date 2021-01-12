@@ -43,7 +43,7 @@ public class LoginPage extends JFrame {
 	}
 
 	private void initListener() {
-		this.actionListener = new LoginActionListener(LoginActionPanel actionPanel);
+		this.actionListener = new LoginActionListener(this);
 	}
 
 	public LoginInputPanel getInputPanel() {

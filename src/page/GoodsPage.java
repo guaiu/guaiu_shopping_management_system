@@ -29,6 +29,9 @@ public class GoodsPage extends JFrame{
 	private GoodsChangeListener changeListener;
 	
 	
+	/**
+	 * 无参数构造方法
+	 */
 	public GoodsPage() {
 		// TODO Auto-generated constructor stub
 		super();
@@ -45,7 +48,6 @@ public class GoodsPage extends JFrame{
 		
 		
 	}
-
 	
 	private void initPanel() {
 		this.showTablePanel = new GoodsShowTablePanel();
