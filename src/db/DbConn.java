@@ -15,7 +15,9 @@ public final class DbConn {
 
 		String user = "sa";
 		String passwd = "123456";
-		String url = "jdbc:sqlserver://DESKTOP-P058HU6:1433;DatabaseName=myDatabase";
+		//String url = "jdbc:sqlserver://DESKTOP-P058HU6:1433;DatabaseName=goodsDatabase"; 
+		//可以具体填电脑的名称，也可以用下一行那种写法
+		String url = "jdbc:sqlserver://localhost:1433;DatabaseName=goodsDatabase";
 		String JDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 
 		// 加载驱动
