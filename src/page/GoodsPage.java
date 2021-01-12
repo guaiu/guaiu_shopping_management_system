@@ -34,7 +34,6 @@ public class GoodsPage extends JFrame{
 		super();
 		this.setTitle("商品管理窗口");
 	
-		this.setLayout(new BorderLayout());
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setBounds(1000, 100, 800, 800);
 		this.setLocationRelativeTo(null);
@@ -55,6 +54,7 @@ public class GoodsPage extends JFrame{
 		this.changePanel = new GoodsChangePanel();
 		this.queryPanel = new GoodsQueryPanel();
 		
+		this.setLayout(new BorderLayout());
 		this.add(addPanel, BorderLayout.WEST);
 		this.add(queryPanel, BorderLayout.NORTH);
 		this.add(showTablePanel, BorderLayout.CENTER);
