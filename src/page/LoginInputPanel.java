@@ -31,9 +31,10 @@ public class LoginInputPanel extends InputPanel {
 		this.textfield_username = new JTextField();
 		this.textfield_password = new JPasswordField();
 		
-		
-		this.textfield_username.addFocusListener(new JTextFieldHintListener(textfield_username, "请输入用户名"));
-		this.textfield_password.addFocusListener(new JTextFieldHintListener(textfield_password, "请输入密码"));
+
+		//有bug
+//		this.textfield_username.addFocusListener(new JTextFieldHintListener(textfield_username, "请输入用户名"));
+//		this.textfield_password.addFocusListener(new JTextFieldHintListener(textfield_password, "请输入密码"));
 
 		this.setLayout(new GridLayout(2, 2));
 		this.add(lable_username);

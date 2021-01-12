@@ -31,7 +31,7 @@ public class UserDao {
 	public boolean addUser(User user) {
 		boolean bool = false;
 		conn = DbConn.getconn();
-		String sql = "INSERT INTO USER(USERNAME,USERPASSWORD) VALUES(?,?)";
+		String sql = "INSERT INTO MYUSER(USERNAME,USERPASSWORD) VALUES(?,?)";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -68,7 +68,7 @@ public class UserDao {
 	public boolean updateUser(User user) {
 		boolean bool = false;
 		conn = DbConn.getconn();
-		String sqlName = "UPDATE USER SET USERNAME=?,USERPASSWORD=? WHERE USERID=?";
+		String sqlName = "UPDATE MYUSER SET USERNAME=?,USERPASSWORD=? WHERE USERID=?";
 
 		try {
 			pstmt = conn.prepareStatement(sqlName);
@@ -106,7 +106,7 @@ public class UserDao {
 	public boolean deleteUser(int userid) {
 		boolean bool = false;
 		conn = DbConn.getconn();
-		String sql = "DELETE FROM USER WHERE USERID=?";
+		String sql = "DELETE FROM MYUSER WHERE USERID=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -140,7 +140,7 @@ public class UserDao {
 	public ArrayList<User> displayUser() {
 		ArrayList<User> userList = new ArrayList<User>();
 		conn = DbConn.getconn();
-		String sql = "SELECT * FROM USER";
+		String sql = "SELECT * FROM MYUSER";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -182,7 +182,7 @@ public class UserDao {
 		ArrayList<User> userList = new ArrayList<User>();
 		conn = DbConn.getconn();
 
-		String sql = "SELECT * FROM USER WHERE USERID=?";
+		String sql = "SELECT * FROM MYUSER WHERE USERID=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("prepareStatement对象获取成功");
@@ -221,7 +221,7 @@ public class UserDao {
 		ArrayList<User> userList = new ArrayList<User>();
 		conn = DbConn.getconn();
 
-		String sql = "SELECT * FROM USER WHERE USERNAME=? AND USERPASSWORD=?";
+		String sql = "SELECT * FROM MYUSER WHERE USERNAME=? AND USERPASSWORD=?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("prepareStatement对象获取成功");
@@ -237,6 +237,7 @@ public class UserDao {
 
 				User user = new User(id, name, password);
 				userList.add(user);
+				System.out.println(userList.get(0));
 			}
 		} catch (SQLException e) {
 			System.out.println("prepareStatement对象发生异常");
@@ -260,7 +261,7 @@ public class UserDao {
 		ArrayList<User> userList = new ArrayList<User>();
 		conn = DbConn.getconn();
 
-		String sql = "SELECT * FROM USER WHERE USERNAME LIKE ?";
+		String sql = "SELECT * FROM MYUSER WHERE USERNAME LIKE ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("prepareStatement对象获取成功");
@@ -298,7 +299,7 @@ public class UserDao {
 		ArrayList<User> userList = new ArrayList<User>();
 		conn = DbConn.getconn();
 
-		String sql = "SELECT * FROM USER WHERE USERNAME LIKE ?";
+		String sql = "SELECT * FROM MYUSER WHERE USERNAME LIKE ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
 			System.out.println("prepareStatement对象获取成功");
